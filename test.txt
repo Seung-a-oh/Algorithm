@@ -1,6 +1,0 @@
-test file
-
-modified file
-커밋 추가하기 again
-
-commit again and again
