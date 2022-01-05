@@ -1,17 +1,32 @@
+# N = int(input())
+# # a = [0]*(N+1)
+# r = [0]
+# result = 0
+
+# a = input().split()
+# a = [int(_) for _ in a]
+
+# for j in range(N):
+#     r[0] = a[j]
+#     for k in range(j+1, N):
+#         if r[len(r)-1] > a[k]:
+#             r.append(a[k])
+#             print(len(r))
+#     if len(r) > result:
+#         result = len(r)
+#     print(r)
+#     r=[0]
+    
+# print(result)
+
 N = int(input())
-A = [0]*(N+1)
-r = [0]*(N+1)
-result = 0
+numbers = list(map(int, input().split()))
 
-array = input().split()
-array = map(int, array)
+dp = [1] * N
 
-for j in range(N):
-    r[j] = array[j]
-    for k in range(j, array):
-        if array[k] > array[j]:
-            r.append(array[k])
-        if len(r) > result:
-            result = len(r)
+for i in range(1, N):
+    for j in range(i):
+        if numbers[j] > numbers[i]:
+            dp[i] = max(dp[i], dp[j] + 1)
 
-print(result)
+print(max(dp))
