@@ -14,3 +14,9 @@ if a <= b:
     print(a)
 else:
     print(b)
+
+    
+# 코드 추가 공부
+# x, y, w, h = map(int,input().split())
+# k = min(x, w-x, h-y, y)
+# print(k)
