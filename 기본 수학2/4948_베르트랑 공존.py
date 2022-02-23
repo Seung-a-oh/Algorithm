@@ -25,11 +25,8 @@ while True:
     
     count = 0
     for i in range(N+1, 2*N+1):
-        a=True
         for n in range(2, int(i**0.5)+1):
-            if N % n == 0:
-                a=False
-        if a:
-            count += 1
+            if i % n == 0:
+                break
+        count += 1
     print(count)
-        
