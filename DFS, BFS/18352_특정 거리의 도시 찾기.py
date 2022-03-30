@@ -1,11 +1,12 @@
 import sys
+from collections import deque
 
 # N: 도시의 개수, M: 도로의 개수, K: 거리 정보, X: 출발 도시의 번호
 N, M, K, X = map(int, sys.stdin.readline().split())
 
 visited = [-1] * (N+1)
 graph = [[] for _ in range(N+1)]
-queue = []
+queue = deque()
 
 for _ in range(M):
     a,b = list(map(int, sys.stdin.readline().rstrip().split()))
@@ -16,7 +17,7 @@ def bfs(n):
     visited[n] = 0
 
     while queue:
-        node = queue.pop(0)
+        node = queue.popleft()
         for i in graph[node]:
             if visited[i] == -1:
                 visited[i] = visited[node] + 1
