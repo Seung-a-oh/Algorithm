@@ -2,21 +2,19 @@ import sys
 
 T = int(sys.stdin.readline())
 
-def fibonacci(n):
-    global zero
-    global one
-    if n == 0:
-        zero += 1
-        return 0
-    elif n == 1:
-        one += 1
-        return 1
-    else:
-        return fibonacci(n-1) + fibonacci(n-2)
-
 for _ in range(T):
     zero = 0
     one = 0
     N = int(sys.stdin.readline())
-    fibonacci(N)
-    print(zero, one)
+    dp = [[0,0] for i in range(N)]
+    if N == 0:
+        print("1 0")
+        continue
+    elif N == 1:
+        print("0 1")
+        continue
+    dp[0] = [1,0]
+    dp[1] = [0,1]
+    for j in range(len(dp))[2:]:
+        dp[j] = [dp[j-1][k] + dp[j-2][k] for k in range(2)]
+    print(dp[N-2][0]+dp[N-1][0], dp[N-2][1]+dp[N-1][1])
