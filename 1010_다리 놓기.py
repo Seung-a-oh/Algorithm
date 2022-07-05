@@ -1,11 +1,11 @@
 import sys
 input = sys.stdin.readline()
 
-t = int(input())
+t = int(sys.stdin.readline())
 for _ in range(t):
     n, m = map(int, sys.sdtin.readline().split())
     dp = [[0 for _ in range(m+1)] for _ in range(n+1)]
-    
+
     for i in range(1, n+1):
         for j in range(1, m+1):
             if i == 1:
